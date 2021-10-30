@@ -346,7 +346,8 @@ function parseSettings(obj) {
         else {
             elClear(document.getElementById('scripts'));
             //reinit mainmenu -> change of script list
-            uiElements.dropdownMainMenu.dispose();
+            if(uiElements.dropdownMainMenu)
+                uiElements.dropdownMainMenu.dispose();
             uiElements.dropdownMainMenu = new BSN.Dropdown(document.getElementById('mainMenu'));
         }
         scriptsInited = true;
