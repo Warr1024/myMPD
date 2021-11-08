@@ -260,7 +260,6 @@ function sendAPI(method, params, callback, onerror) {
 
 function webSocketKeepAlive() {
     if (socket !== null && socket.readyState === WebSocket.OPEN) {
-        console.log("websocket keepalive " + new Date().toISOString());
         socket.send("");
     }
 }
