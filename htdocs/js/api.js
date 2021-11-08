@@ -261,7 +261,7 @@ function sendAPI(method, params, callback, onerror) {
 function webSocketKeepAlive() {
     if (socket !== null && socket.readyState === WebSocket.OPEN) {
         console.log("websocket keepalive " + new Date().toISOString());
-        socket.send(""); // Empty keep-alive message
+        socket.send("");
     }
 }
 setInterval(webSocketKeepAlive, 25000);
