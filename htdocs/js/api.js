@@ -258,6 +258,14 @@ function sendAPI(method, params, callback, onerror) {
     return true;
 }
 
+function webSocketKeepAlive() {
+    if (socket !== null && socket.readyState === WebSocket.OPEN) {
+        console.log("websocket keepalive " + new Date().toISOString());
+        socket.send(""); // Empty keep-alive message
+    }
+}
+setInterval(webSocketKeepAlive, 25000);
+
 function webSocketConnect() {
     if (socket !== null && socket.readyState === WebSocket.OPEN) {
         logInfo('Socket already connected');
